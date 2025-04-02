@@ -1,3 +1,11 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
 .toast {
   position: fixed;
   top: 10px;
@@ -15,4 +23,39 @@
 .toast.show {
   opacity: 1;
   transform: translateX(0);
+}
+.container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feedback-form {
+  background: white;
+  padding: 36px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #3a3b44;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.feedback-form textarea {
+  resize: none;
+}
+
+.form-buttom {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 18px;
 }
