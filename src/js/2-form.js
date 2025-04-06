@@ -7,7 +7,7 @@ let formData = {
 };
 let handleInput = event => {
   formData[event.target.name] = event.target.value.trim();
-  localStoragesetItem('feedback-form-state', JSON.stringify(formData));
+  localStorage.setItem('feedback-form-state', JSON.stringify(formData));
 };
 form.addEventListener('input', handleInput);
 if (localStorage.getItem('feedback-form-state') !== null) {
@@ -19,8 +19,8 @@ if (localStorage.getItem('feedback-form-state') !== null) {
     console.error('Error message:', error.message);
   }
   formData = { ...formData, ...localStorageData };
-  form.nextElementSibling.email.value = formData.email || '';
-  form.nextElementSibling.message.value = formData.message || '';
+  form.elements.email.value = formData.email || '';
+  form.elements.message.value = formData.message || '';
 }
 
 function formSubmit() {
@@ -29,15 +29,15 @@ function formSubmit() {
 
     let { email, message } = formData;
     if (!isEmail(email)) {
-      showAlert("It's not emai");
+      alert("It's not email");
       return;
     }
     if (message.trim() === '') {
-      showAlert('Wright something');
+      alert('Wright something');
       return;
     }
 
-    showAlert('Message sent successfully!');
+    alert('Message sent successfully!');
     console.log(formData);
 
     localStorage.removeItem('feedback-form-state');
